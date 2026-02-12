@@ -30,7 +30,7 @@ The following key contributions are implemented:
 
 ## Installation
 
-**Prerequisites:** Python 3.9, a CUDA-enabled GPU, and ~24 GB shared memory for data loading.
+**Prerequisites:** Python 3.9, a CUDA-enabled GPU.
 
 ### Option A — Conda
 
