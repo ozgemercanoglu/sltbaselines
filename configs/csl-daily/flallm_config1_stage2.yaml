@@ -1,0 +1,22 @@
+# Fla-LLM / C2RL Stage 2 config (12-layer Mbart)
+name: GFSLT-VLP
+data:
+  train_label_path: ./data/CSL-daily/labels.train
+  dev_label_path: ./data/CSL-daily/labels.dev
+  test_label_path: ./data/CSL-daily/labels.test
+  # provide img_path if using raw images, or img_lmdb_path if using lmdb files.
+  img_path: /path/to/CSL-daily/sentences/frames_512x512
+  img_lmdb_path: /path/to/CSL-daily/CSL-Daily_lmdb
+  max_length: 300 # max frames per video
+  dataset_name: csl-daily
+training:
+  wandb: disabled # online or disabled. Set to "online" to enable W&B logging. Add WANDB_API_KEY to your environment variables.
+  scale_embedding: False
+model:
+  tokenizer:  ../mbart_models/CSL/MBart_trimmed
+  transformer:  ../mbart_models/CSL/MBart_trimmed
+  visual_encoder: ../mbart_models/CSL/mytran
+  decoder_type: mbart_12layers
+  sign_proj: True
+  sign_proj_normalization: LN
+  

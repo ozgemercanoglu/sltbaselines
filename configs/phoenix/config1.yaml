@@ -1,0 +1,18 @@
+name: GFSLT-VLP
+data:
+  train_label_path: ./data/Phoenix-2014T/labels.train
+  dev_label_path: ./data/Phoenix-2014T/labels.dev
+  test_label_path: ./data/Phoenix-2014T/labels.test
+  # provide img_path if using raw images, or img_lmdb_path if using lmdb files.
+  img_lmdb_path: /path/to/Phoenix/Phoenix_lmdb 
+  max_length: 300 # max frames per video
+  dataset_name: phoenix
+training:
+  wandb: disabled # online or disabled. Set to "online" to enable W&B logging. Add WANDB_API_KEY to your environment variables.
+  scale_embedding: False
+model:
+  tokenizer:  ../mbart_models/Phoenix/MBart_trimmed
+  transformer:  ../mbart_models/Phoenix/MBart_trimmed
+  visual_encoder: ../mbart_models/Phoenix/mytran
+  sign_proj: True
+  sign_proj_normalization: LN
